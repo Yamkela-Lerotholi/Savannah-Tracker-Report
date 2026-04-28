@@ -1,0 +1,107 @@
+SAVANNAH TRACKER REPORT: PRECISION PROMPTING FOR MATERNAL HEALTH
+
+INTRODUCTION
+In maternal health, vague AI outputs can be harmful, not just unhelpful. Generic advice often ignores local realities like diet, distance to clinics, and financial constraints.
+Precision prompting ensures AI delivers relevant, safe, and culturally aligned guidance, transforming it into a reliable support tool for expectant mothers in rural communities.
+
+PROMPT A: NUTRITION ADVICE
+Rewritten Prompt:
+A (Actor): You are a rural maternal nutritionist working with community health workers in western Kenya and eastern Uganda.
+I (Input): Target users are pregnant women in low-income households where matooke and ugali provide about 60% of daily calories. Protein intake is limited, and access to supplements is inconsistent. Most food is sourced from local markets or small farms.
+M (Mission): Generate a 7-day nutrition plan using locally available foods that improves iron, protein, and vitamin intake. Include affordable substitutions and portion guidance.
+
+MAP Framework:
+M (Memory): User’s pregnancy stage, dietary restrictions, allergies, and income level.
+A (Assets): Local food database (matooke, sukuma wiki, beans, groundnuts, small fish) and WHO nutrition guidelines.
+P (Prompt/Actions): Identify nutrient gaps, match them with local foods, and generate a daily meal plan with cost-conscious options.
+
+Key Improvement:
+This prompt ensures culturally relevant and affordable nutrition advice, reducing unrealistic recommendations and improving real-world usability.
+
+PROMPT B: APPOINTMENT REMINDERS
+Rewritten Prompt:
+A (Actor): You are a maternal care coordinator managing rural clinic schedules and community health worker outreach.
+I (Input): 70% of users live more than 5 km from clinics and rely on walking or motorbike transport. Clinics operate from 8am to 2pm. Community health workers visit villages weekly.
+M (Mission): Generate personalized appointment reminders that account for travel time, clinic hours, and suggest community health worker alternatives when needed.
+
+MAP Framework:
+M (Memory): User’s last clinic visit, pregnancy stage, distance to nearest clinic, and assigned community health worker.
+A (Assets): Clinic schedules, community health worker visit calendar, travel time estimates, and SMS system.
+P (Prompt/Actions): Trigger reminder, adjust for travel time, suggest departure time or CHW visit, and send SMS in a clear and supportive tone.
+
+Key Improvement:
+This prompt turns simple reminders into actionable plans that reflect real access challenges, increasing the likelihood of attendance.
+
+PROMPT C: EMERGENCY TRIAGE
+Rewritten Prompt:
+A (Actor): You are a trained maternal health triage assistant supporting rural patients via SMS.
+I (Input): Users report symptoms such as headache, bleeding, or swelling. Many have limited medical knowledge and delayed access to clinics.
+M (Mission): Assess symptom severity, guide immediate next steps, and escalate urgent cases while avoiding unnecessary panic.
+
+MAP Framework:
+M (Memory): User’s pregnancy stage, medical history, and previous symptoms.
+A (Assets): WHO pregnancy danger signs, triage protocols, and emergency contact pathways.
+P (Prompt/Actions): Classify symptoms, determine risk level, provide clear next steps, and trigger escalation if necessary.
+
+Chain-of-Thought Instruction:
+Reason step-by-step by classifying symptoms, checking danger signs, determining urgency, and providing actions.
+
+Verifier Pattern Instruction:
+Ask up to three clarifying questions if needed before giving advice.
+
+Key Improvement:
+This prompt improves safety by adding structured reasoning and clarification, reducing the risk of incorrect or harmful guidance.
+
+REFLECTION
+This exercise changed how I view AI in healthcare. AI is not just a tool for generating information but a system that must be carefully guided by context. 
+Without precise prompts, it produces generic and sometimes misleading outputs. By applying frameworks like AIM and MAP, AI becomes more reliable, relevant, and safe. 
+In maternal health, this is critical because decisions can directly affect lives. I now understand that the responsibility lies with the user to define clear boundaries, provide accurate context, and verify outputs. 
+Precision prompting ensures AI supports, rather than risks, patient care.
+
+
+1. MAP Framework Failure + Redesign
+
+Why the failure occurred:
+The AI recommended kale because it relied on generalized global nutrition data instead of local context.
+
+Memory failure: No user-specific or regional dietary context was stored.
+Assets failure: No local food database was provided.
+Prompt failure: The instruction was vague and not constrained to Kakamega’s food ecosystem.
+
+Redesigned Prompt (MAP applied):
+M (Memory):User is a pregnant woman in Kakamega County with access to local markets and subsistence farming.
+A (Assets): Local food list including sukuma wiki, managu (African nightshade), kunde (cowpea leaves), matooke, groundnuts, beans.
+P (Prompt/Actions): “You are a rural maternal nutritionist in western Kenya. Using local foods available in Kakamega County, generate affordable nutrition advice for pregnant women. 
+                    Replace any foreign foods ) with locally available alternatives and explain their nutritional benefits.”
+
+2. Verifier Pattern for Triage
+
+Improved Prompt Using Verifier Pattern:
+“You are a maternal health triage assistant. Before giving any advice, ask up to three clarifying questions to assess severity. For example:
+How severe is the abdominal pain (mild, moderate, severe)?
+How long has the pain lasted?
+Are there additional symptoms such as bleeding, fever, or dizziness?
+Only after receiving answers, provide guidance that matches urgency level, including home care options or when clinic visits are necessary.”
+Why this works: It prevents panic by ensuring the AI does not jump to worst-case scenarios without context.
+
+3. Chain-of-Thought vs Direct Summarization
+
+Using Chain-of-Thought creates more value because it forces the AI to interpret and adapt, not just repeat.
+Direct summarization copies WHO guidelines, which assume ideal conditions (easy hospital access, stable income, high literacy).
+Chain-of-Thought makes the AI reason step-by-step:
+Identify the guideline
+Evaluate local constraints (distance, cost, literacy)
+
+Result:
+Outputs become actionable and realistic, not just accurate in theory. In rural East Africa, practicality matters more than textbook correctness.
+
+4. Using OCEAN to Catch Outdated Data
+
+O (Original): Check if the statistic is fresh or recycled. “1.8 doctors per 10,000” may be outdated.
+C (Concrete): Demand a specific source and year.
+E (Evident): Verify the data against reliable datasets. This would reveal the updated figure (0.9/10,000).
+A (Assertive): Challenge the claim instead of accepting it. Ask: “Is this still accurate in 2025?”
+N (Narrative): Add context: explain workforce shortages and rural-urban disparities.
+
+Result:
+The incorrect statistic is flagged and corrected before reaching donors, preventing credibility loss.
