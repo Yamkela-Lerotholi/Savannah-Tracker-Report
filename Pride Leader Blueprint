@@ -1,0 +1,154 @@
+THE AGENT SAVANNAH
+PRIDE LEADER BLUEPRINT
+
+INTRODUCTION
+Agent orchestration matters in agritech because farmers need coordinated support, not isolated AI answers. Pricing, logistics, weather, and finance must work together safely. A well-designed agent pride improves speed,
+trust, and accuracy while preserving human control, data sovereignty, and reliable service in low-connectivity rural environments.
+
+AGENT 1: SCOUT AGENT (MARKET INTELLIGENCE)
+
+RANK FRAMEWORK
+
+R — Role
+Price advisor only. It gathers market prices, summarizes trends, and suggests likely price movement.
+
+A — Authority
+May send at most 3 SMS updates per day. Must never tell the farmer to sell or hold as a final decision. It can advise, not decide.
+
+N — Notification Triggers
+Alert the Guardian Agent if price volatility exceeds 20%, if market data is missing, or if a buyer contract is signed for more than 500 kg.
+
+K — Kill Switch
+USSD code *#700# instantly pauses all Scout Agent activity.
+
+GUARD SAFETY RAIL
+Block any pricing advice that uses gender, ethnicity, or location proxies as risk factors.
+
+CYCLE ENGINE COMPONENT
+Capture: Log price accuracy, farmer response rate, and how often the agent’s advice matched actual market movement.
+
+SPECIALIZED TOOL
+CrewAI for role separation and conflict handling.
+
+AGENT 2: GUARDIAN AGENT (LOGISTICS COORDINATOR)
+
+TRAIL FRAMEWORK
+
+T — Transient Memory
+Store only the current booking session: pickup point, crop type, truck status, and delivery deadline.
+
+R — Relational Memory
+Store farm location, preferred transport contacts, and route preferences only with opt-in consent.
+
+A — Archival Memory
+Keep anonymized route success rates, delivery delays, and seasonal road-risk patterns.
+
+I — Inheritance Rules
+Pass only verified road condition data, destination, volume, and deadline to the Hunter Agent. Do not pass raw chat history or phone numbers.
+
+L — Land Rights
+All data stays under African sovereignty and is stored in AWS Africa region in line with Uganda’s Data Protection Act.
+
+HUNT PROTOCOL HANDOFFS
+When Scout confirms a buyer contract above 500 kg, it alerts Guardian with destination, volume, and deadline. Guardian checks truck availability and road conditions. If transport is feasible, it alerts Hunter to brief
+the human logistics manager.
+
+GUARD SAFETY RAIL
+Block bookings if road conditions are unverified, if rainfall risk is high, or if the route has recent disruption alerts.
+
+CYCLE ENGINE COMPONENT
+Capture: Log % of delayed deliveries caused by road conditions, truck shortages, or booking errors.
+
+SPECIALIZED TOOL
+LangGraph for visual workflow and handoff mapping.
+
+AGENT 3: HUNTER AGENT (HUMAN-IN-LOOP LIAISON)
+
+RANK FRAMEWORK
+
+R — Role
+Human-in-loop liaison only. It prepares clear briefings for the logistics manager and gathers final approval.
+
+A — Authority
+May summarize, escalate, and request confirmation. It cannot approve truck dispatch on its own.
+
+N — Notification Triggers
+Notify the human manager if road risk is high, truck availability is low, or booking cost exceeds budget limits.
+
+K — Kill Switch
+USSD code *#700# or manager override instantly pauses its workflow.
+
+GUARD SAFETY RAIL
+Block any message that sounds demeaning, confusing, or that hides risk from the human reviewer.
+
+CYCLE ENGINE COMPONENT
+Capture: Log manager approval time, escalation frequency, and outcomes after human review.
+
+SPECIALIZED TOOL
+n8n for automated alerts and human approval routing.
+
+REFLECTION
+This pride design preserves human sovereignty by keeping the final decisions with people, not machines. The Scout informs, the Guardian coordinates, and the Hunter escalates. No agent acts alone on high-risk decisions.
+That structure makes the system safer, more accountable, and more useful for farmers. Autonomy works best when it is bounded, transparent, and connected to human judgment.
+
+QUIZ ANSWERS: AGENT SAVANNAH
+
+RANK redesign for the unbounded Logistics Agent
+
+Role: Logistics coordinator only. It can suggest transport options, not book blindly.
+
+Authority: It may reserve trucks only after checking road conditions, weather, and deadline feasibility. It cannot finalize bookings during high-risk weather without human approval.
+
+Notification triggers:
+
+Alert human if road conditions are unverified
+Alert if rainy season risk is high
+Alert if truck availability drops below threshold
+Alert if route disruption is reported
+
+Kill Switch: USSD *#700# pauses all logistics actions immediately.
+
+Why this prevents recurrence:
+It stops the agent from acting beyond its role, forces verification before booking, and ensures humans are warned before harvests are stranded.
+
+TRAIL Land Rights for raw phone numbers in U.S. cloud servers
+
+T — Transient: Keep only current session data in memory.
+
+R — Relational: Store phone numbers only with explicit opt-in and only if needed for service delivery.
+
+A — Archival: Anonymize all long-term records; never keep raw phone numbers in analytics datasets.
+
+I — Inheritance: When passing data between agents, share only the minimum needed, such as delivery zone and preferred contact channel, not the raw number itself.
+
+L — Land Rights: Store all farmer data in African-controlled infrastructure under Uganda’s Data Protection Act, not in U.S. cloud servers.
+
+This keeps memory useful without violating sovereignty or privacy.
+
+GUARD for loan bias against market vendors
+
+Red Team Testing:
+Simulate applications from women market vendors, informal traders, and rural borrowers with strong repayment history. Compare scores against formal employees with the same cashflow.
+
+Dignity Preservation:
+Reject denial messages that label people as “unreliable,” “too risky,” or similar insulting terms. Require respectful, actionable feedback instead.
+
+How this would have prevented harm:
+The red team would expose the disparity before launch, and the dignity filter would stop the system from producing harmful or degrading output.
+
+CYCLE Engine and the 22% improvement
+
+Capture:
+Record pricing recommendation accuracy, farmer response, sales conversion, and actual market outcome.
+
+Yield Insights:
+Analyze the logged results after 6 weeks and identify which price suggestions performed best.
+
+Course-Correct:
+Adjust the pricing logic based on those insights, such as improving market timing or local price thresholds.
+
+Loop Validation:
+A human must approve the changes before the system is updated.
+
+Why it compounds advantage:
+Each cycle makes the system smarter by learning from real outcomes instead of repeating the same logic. Loop Validation matters because it prevents unsafe or misleading changes from being deployed automatically.
